@@ -16,9 +16,9 @@ class methodprint {
 
 
     System.out.println("Method 4");
-     for(int i = 0; i < arr.length; i++) {
-         System.out.println(arr[i]);
-     }
+    //  for(int i = 0; i < arr.length; i++) {
+    //      System.out.println(arr[i]);
+    //  }
 
      System.out.println("Method 5");
      for(String str : arr ) {

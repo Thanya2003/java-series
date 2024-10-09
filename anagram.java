@@ -4,17 +4,18 @@ import java.util.Scanner;
 
 public class anagram {
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        System.out.println("Enter the first word");
-        String string1=sc.nextLine();
-        System.out.println("Enter the Second word");
-        String string2=sc.nextLine();
+        try (Scanner sc = new Scanner(System.in)) {
+            System.out.println("Enter the first word");
+            String string1=sc.nextLine();
+            System.out.println("Enter the Second word");
+            String string2=sc.nextLine();
 
-        if(isanagram(string1, string2)){
-            System.out.println("The words "+string1+" and "+string2+" are anagrams");
-        }else{
-            System.out.println("The words "+string1+" and "+string2+" not are anagrams");
+            if(isanagram(string1, string2)){
+                System.out.println("The words "+string1+" and "+string2+" are anagrams");
+            }else{
+                System.out.println("The words "+string1+" and "+string2+" not are anagrams");
 
+            }
         }
         
     }

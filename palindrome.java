@@ -4,13 +4,14 @@ import java.util.Scanner;
 public class palindrome {
     public static void main(String[] args) {
         System.out.println("Enter word, number or pharse");
-        Scanner sc = new Scanner(System.in);
-        String str = sc.nextLine();
-        String Cleanin= str.replaceAll("[^a-zA-Z0-9]", "").toLowerCase();
-        if(ispalindrome(Cleanin)){
-            System.out.println("The string " +str+" is palindrome");
-        }else{
-            System.out.println("The string " +str+" is not palindrome");
+        try (Scanner sc = new Scanner(System.in)) {
+            String str = sc.nextLine();
+            String Cleanin= str.replaceAll("[^a-zA-Z0-9]", "").toLowerCase();
+            if(ispalindrome(Cleanin)){
+                System.out.println("The string " +str+" is palindrome");
+            }else{
+                System.out.println("The string " +str+" is not palindrome");
+            }
         }
     }
     public static boolean ispalindrome (String stri){
