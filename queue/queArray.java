@@ -42,6 +42,7 @@ public class queArray {
         }
         return arr[0];
     }
+    
 
 }
 public static void main(String[] args) {
