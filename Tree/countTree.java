@@ -32,6 +32,14 @@ public class countTree {
                     int rightNode=counNode(root.right);
                     return leftNode+rightNode+1;
         }
+        public static int sunNode(Node root){
+            if(root==null){
+                return 0;
+            }
+            int leftsum=sunNode(root.left);
+            int rightsum= sunNode(root.right);
+            return leftsum+rightsum+root.data;
+        }
 
         
         public static void main(String[] args) {
@@ -39,6 +47,7 @@ public class countTree {
             Bt tree= new Bt();
             Node root=tree.buildingTree(nodes);
            System.out.println(counNode(root));
+           System.out.println(sunNode(root));
     
 
         }
