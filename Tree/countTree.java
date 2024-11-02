@@ -40,7 +40,16 @@ public class countTree {
             int rightsum= sunNode(root.right);
             return leftsum+rightsum+root.data;
         }
+        public static int height(Node root){
+            if(root==null){
+                return 0;
+            }
+            int leftheight=height(root.left);
+            int rightheight=height(root.right);
 
+            return Math.max(leftheight, rightheight)+1;
+        }
+        public stat
         
         public static void main(String[] args) {
             int[] nodes={1, 2, 4, -1, -1, 5, -1, -1, 3, -1, 6, -1, -1};
@@ -48,7 +57,7 @@ public class countTree {
             Node root=tree.buildingTree(nodes);
            System.out.println(counNode(root));
            System.out.println(sunNode(root));
-    
+            System.out.println(height(root));
 
         }
 
