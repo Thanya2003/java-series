@@ -71,7 +71,10 @@ public class BinaryTree {
             }else{
                 System.out.println(currNode.data+" ");
                 if(currNode.left!=null){
-                    q.add()
+                    q.add(currNode.left);
+                }
+                if(currNode.right!=null){
+                    q.add(currNode.right);
                 }
             }
         }
@@ -80,7 +83,7 @@ public class BinaryTree {
         int nodes[]={1, 2, 4, -1, -1, 5, -1, -1, 3, -1, 6, -1, -1};
         BT tree = new BT();
         Node Root=tree.BulidTree(nodes);
-        PostOrder(Root);
+        levelOrder(Root);
     }
     
 }
