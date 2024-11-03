@@ -34,26 +34,76 @@ public class BSTcon {
             return false;
         }
         if(root.data>key){
-            search(root.left, key);
-            return true;
+            return search(root.left, key);
         }
         else if(root.data==key){
             return true;
         }
-        else if(root.data<key){
-            search(root.right, key);
-            return true;
+        else{
+            return search(root.right, key);
         }
-        return false;
+    }
+    public static TreeNode delete(TreeNode root, int val){
+        if(root.data>val){
+            root.left= delete(root.left, val);
+        }
+        else if(root.data<val){
+             root.right= delete(root.right, val);
+        }
+        else{
+            // case1
+        if(root.left==null && root.right==null){
+            return null;
+        }
+        // case 2
+        if(root.left==null){
+            return root.right;
+        }
+        else if(root.right==null){
+            return root.left;
+        }
+
+        // case 3
+        TreeNode IS=InorderScuccessor(root.right);
+        root.data=IS.data;
+        root.right= delete(root.right, IS.data);
+    }
+    return root;
+    }
+    public static TreeNode InorderScuccessor(TreeNode root){
+       while(root.left!=null){
+        root =root.left;
+       }
+       return root;
+    }
+    public static void PrintInRange(TreeNode root, int x, int y){
+        if(root==null){
+            return;
+        }
+        if(root.data>=x && root.data<=y){
+            PrintInRange(root.left, x, y);
+            System.out.print(root.data+" ");
+            PrintInRange(root.right, x, y);
+        }
+        else if(root.data>=y){
+        PrintInRange(root.left, x, y);
+        // System.out.print(root.data+" ");
+        }
+        else{
+            PrintInRange(root.right, x, y);
+            // System.out.print(root.data+" ");
+        }
     }
     public static void main(String[] args) {
-        int[] values={5,1, 2, 8, 9, 3, 4, 6, 7};
+        int[] values={5, 1, 2, 3, 4, 6, 10, 7, 11, 9};
         TreeNode root=null;
         for(int i=0; i<values.length; i++){
             root=insert(root, values[i]);
         }
         Inorder(root);
         System.out.println();
-        System.out.println(search(root, 7)?"Key found":"key not found");
+        // root=delete(root, 10);
+        // Inorder(root);
+        PrintInRange(root, 5, 9);
     }
 }
