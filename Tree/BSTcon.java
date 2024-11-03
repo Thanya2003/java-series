@@ -29,14 +29,31 @@ public class BSTcon {
         System.out.print(root.data+" ");
         Inorder(root.right);
     }
-    pu
+    public static boolean search(TreeNode root, int key){
+        if(root==null){
+            return false;
+        }
+        if(root.data>key){
+            search(root.left, key);
+            return true;
+        }
+        else if(root.data==key){
+            return true;
+        }
+        else if(root.data<key){
+            search(root.right, key);
+            return true;
+        }
+        return false;
+    }
     public static void main(String[] args) {
-        int[] values={5,1, 2, 3, 4, 6, 7};
+        int[] values={5,1, 2, 8, 9, 3, 4, 6, 7};
         TreeNode root=null;
         for(int i=0; i<values.length; i++){
             root=insert(root, values[i]);
         }
         Inorder(root);
         System.out.println();
+        System.out.println(search(root, 7)?"Key found":"key not found");
     }
 }
