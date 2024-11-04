@@ -1,7 +1,7 @@
 package hash_set_map;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
+import java.util.Set;
 
 public class hashmap {
     public static void main(String[] args) {
@@ -26,5 +26,14 @@ public class hashmap {
         for(Map.Entry<String, Integer> e : map.entrySet()){
             System.out.print(e.getKey()+":"+e.getValue()+"   ");
         }
+        System.out.println();
+
+        Set<String> keys =map.keySet();
+        for(String key : keys){
+            System.out.print(key+" "+map.get(key)+" ");
+        }
+        System.out.println();
+        map.remove("China");
+        System.out.println(map);
     }
 }
