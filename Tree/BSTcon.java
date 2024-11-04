@@ -1,5 +1,7 @@
 package Tree;
 
+import java.util.ArrayList;
+
 public class BSTcon {
     static class TreeNode{
         int data;
@@ -94,6 +96,25 @@ public class BSTcon {
             // System.out.print(root.data+" ");
         }
     }
+    public static void PrintRoot2leaf(TreeNode root, ArrayList<Integer> path){
+        if(root==null){
+            return;
+        }
+        path.add(root.data);
+        if(root.left==null && root.right==null){
+            printPath(path);
+        }else{
+            PrintRoot2leaf(root.left, path);
+            PrintRoot2leaf(root.right, path);
+        }
+        path.remove(path.size()-1);
+    }
+    public static void printPath(ArrayList<Integer> path){
+        for(int i=0; i<path.size()-1;i++){
+            System.out.print(path.get(i)+"->");
+        }
+        System.out.println();
+    }
     public static void main(String[] args) {
         int[] values={5, 1, 2, 3, 4, 6, 10, 7, 11, 9};
         TreeNode root=null;
@@ -105,5 +126,7 @@ public class BSTcon {
         // root=delete(root, 10);
         // Inorder(root);
         PrintInRange(root, 5, 9);
+        System.out.println();
+        PrintRoot2leaf(root, new ArrayList<>());
     }
 }
