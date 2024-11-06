@@ -14,7 +14,7 @@ public class ME {
         }
  }
     for(int key: map.keySet()){
-        if(map.get(key)<N/3){
+        if(map.get(key)>N/3){
             System.out.println(key+":"+map.get(key));
         }
     }
