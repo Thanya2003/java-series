@@ -72,7 +72,7 @@ public class trieDS {
     }
     public static void main(String[] args) {
         String[] words={"app", "apple", "mango", "mobile"};
-        String key="app";
+        String key="man";
         for (String word : words) {
             insert(word);
         }
