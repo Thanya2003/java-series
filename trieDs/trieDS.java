@@ -42,15 +42,41 @@ public class trieDS {
         }
         return true;
     }
+    public static boolean wordBreak(String key){
+        if(key.length()==0){
+            return true;
+        }
+        for(int i=1; i<=key.length(); i++){
+            String firstpart=key.substring(0,i);
+            String secondpart=key.substring(i);
+            if(search(firstpart) && wordBreak(secondpart)){
+                return true;
+            }
+        }
+        return false;
+    }
+    public static boolean startwith(String key){
+        if(key.length()==0){
+            return true;
+        }
+        Node curr = root;
+        for(int i=0; i<key.length(); i++){
+            int idx=key.charAt(i)-'a';
+            if(curr.childern[idx]==null){
+                return false;
+            }
+            curr=curr.childern[idx];
+
+        }
+        return true;
+    }
     public static void main(String[] args) {
-        String[] words={"the", "a", "there", "their", "any"};
+        String[] words={"app", "apple", "mango", "mobile"};
+        String key="app";
         for (String word : words) {
             insert(word);
         }
-        System.out.println(search("their"));
-        System.out.println(search("the"));
-        System.out.println(search("thor"));
-        System.out.println(search("an"));
+      System.out.println(startwith(key));
 
         
     }
