@@ -32,7 +32,7 @@ public class longSubstring {
             return;
         }
         for(int i=0; i<26; i++){
-            if(root.childern[i]!=null && root.childern[i].eow){
+            if(root.childern[i]!=null &&  root.childern[i].eow){
                 temp.append((char)(i+'a'));
                 if(temp.length()>ans.length()){
                     ans=temp.toString();
