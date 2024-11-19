@@ -45,7 +45,7 @@ public class dfs {
         for(int i=0; i<graph[curr].size(); i++){
             edge e=graph[curr].get(i);
             if(visit[e.des]==false)
-                dfscr(graph, visit, e.des);
+            dfscr(graph, visit, e.des);
         }
 
     }
@@ -54,7 +54,12 @@ public class dfs {
         ArrayList<edge> graph[]= new ArrayList[v];
         creategraph(graph);
         boolean visit[]=new boolean[v];
-        dfscr(graph, visit, 0);
+        for(int i=0; i<v; i++){
+            if(visit[i]==false){
+                dfscr(graph, visit, i);
+            }
+        }
+        
         System.out.println();
     }
 }
