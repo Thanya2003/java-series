@@ -1,8 +1,8 @@
 package graph;
 
 import java.util.*;
-
-public class dfs {
+public class allpath {
+    
     static class edge{
         int src;
         int des;
@@ -39,27 +39,28 @@ public class dfs {
 
         graph[6].add(new edge(6, 5));
     }
-    public static void dfscr(ArrayList<edge> graph[], boolean visit[], int curr){
-        System.out.print(curr+" ");
-        visit[curr]=true;
+    public static void printallpath(ArrayList<edge> graph[], boolean visit[], String path, int curr, int target ){
+        if(curr == target){
+            System.out.println(path);
+            return;
+        }
         for(int i=0; i<graph[curr].size(); i++){
             edge e=graph[curr].get(i);
-            if(visit[e.des]==false)
-            dfscr(graph, visit, e.des);
-        }
+        if(!visit[e.des]){
+                visit[curr]=true;
+                printallpath(graph, visit, path+e.des, e.des, target);
+                visit[curr]=false;
 
+            }
+        }
     }
     public static void main(String[] args) {
         int v=7;
         ArrayList<edge> graph[]= new ArrayList[v];
         creategraph(graph);
-        boolean visit[]=new boolean[v];
-        for(int i=0; i<v; i++){
-            if(visit[i]==false){
-                dfscr(graph, visit, i);
-            }
-        }
+        int src=0, tar=5;
+        printallpath(graph, new boolean[v], "0", src, tar);
         
         System.out.println();
-    }
-}
+    }}
+
